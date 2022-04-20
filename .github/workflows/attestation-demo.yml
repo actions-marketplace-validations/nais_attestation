@@ -1,4 +1,4 @@
-name: nais attestation
+name: nais attestation-demo
 
 on:
   push:
@@ -10,12 +10,18 @@ env:
   IMAGE: ghcr.io/nais/attestation/demo
 
 jobs:
-  generate-provenance:
+  generate-attestation:
     runs-on: ubuntu-20.04
     steps:
       # Required step
       - name: Checkout Code
         uses: actions/checkout@v3
+
+      - name: Login to Github
+        uses: docker/login-action@v1
+        with:
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
 
       # For demonstration purpose
       - name: Build and push
