@@ -22,7 +22,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: "${{ env.IMAGE }}:${{ env.GITHUB_SHA }}"
+          tags: "${{ env.IMAGE }}:${{ github.sha }}"
 
       # Added to your workflow
       - name: Generate attestation, upload and sign image
