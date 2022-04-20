@@ -1,4 +1,4 @@
-FROM alpine AS builder
+FROM alpine:3.14 AS builder
 
 ENV COSIGN_VERSION=v1.6.0
 
