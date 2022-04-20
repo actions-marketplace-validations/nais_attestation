@@ -8,5 +8,6 @@ echo "${INPUT_KEY_PWD}" | syft attest --key "${INPUT_KEY}" "${INPUT_IMAGE}" > sb
 
 echo "printing sbom file:"
 cat sbom.json
+ls -la
 
 #cosign attach attestation --attestation sbom.json "${INPUT_IMAGE}"
