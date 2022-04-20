@@ -1,0 +1,40 @@
+name: 'nais SBOM attestation Action'
+description: 'A POC Action to generate signed attestation'
+branding:
+  icon: lock
+  color: red
+inputs:
+  key:
+    description: |-
+      The key used to sign the attestation
+    required: true
+
+  key_pwd:
+    description: |-
+      The password used to sign the attestation
+    required: true
+
+  docker_user:
+    description: |-
+      User to login to docker
+    required: true
+
+  docker_pwd:
+    description: |-
+      Pwd to login to docker
+    required: true
+
+  image:
+    description: |-
+      docker image to sign. Defaults to $ENV_IMAGE.
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.image }}
+    - ${{ inputs.key }}
+    - ${{ inputs.key_pwd }}
+    - ${{ inputs.docker_user }}
+    - ${{ inputs.docker_pwd }}
