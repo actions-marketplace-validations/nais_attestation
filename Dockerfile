@@ -5,7 +5,7 @@ ENV SYFT_VERSION=v0.44.1
 ENV GRYPE_VERSION=v0.35.0
 
 RUN apk add curl docker
-RUN curl -sSfL https://raw.githubusercontent.com/anchore/syft/main/install.sh | sh -s -- -b /usr/local/bin
+RUN curl -sSfL https://raw.githubusercontent.com/anchore/syft/$SYFT_VERSION/install.sh | sh -s -- -b /usr/local/bin
 
 RUN curl -sSfL https://raw.githubusercontent.com/anchore/grype/$GRYPE_VERSION/install.sh | sh -s -- -b /usr/local/bin
 
