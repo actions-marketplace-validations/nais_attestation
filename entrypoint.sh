@@ -1,4 +1,5 @@
 #!/bin/sh -l
+set -e
 
 DOCKER_REGISTRY="${INPUT_IMAGE%%/*}"
 

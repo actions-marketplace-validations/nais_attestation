@@ -35,7 +35,7 @@ jobs:
       - name: Generate attestation, upload and sign image
         uses: ./
         with:
-          image: ${{ env.IMAGE }}
+          image: "${{ env.IMAGE }}:${{ github.sha }}"
           key: ${{ secrets.COSIGN_KEY }}
           key_pwd: ${{ secrets.COSIGN_KEY_PWD }}
           docker_user: ${{ github.actor }}
