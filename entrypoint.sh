@@ -10,3 +10,5 @@ echo "${INPUT_KEY}" > cosign.key
 echo "${INPUT_KEY_PWD}" | syft attest -o spdx-json "${INPUT_IMAGE}" > sbom.json
 
 cosign attach attestation --attestation sbom.json "${INPUT_IMAGE}"
+
+grype "${INPUT_IMAGE}" --fail-on critical
